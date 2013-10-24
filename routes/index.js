@@ -1,5 +1,5 @@
 
 
 exports.index = function( req, res ){
-    res.render('index', {Title: "Ben's site", message: "Hello World"});
+    res.render('index', {Title: "Ben Kahle | Profile", message: "Hello World"});
 };
