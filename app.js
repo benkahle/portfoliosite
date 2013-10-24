@@ -6,8 +6,6 @@
 var express = require( 'express' );
 var handlebars = require( 'express3-handlebars' );
 var routes = require( './routes' );
-var user = require( './routes/user' );
-var search = require( './routes/search' );
 var http = require( 'http' );
 var path = require( 'path' );
 
