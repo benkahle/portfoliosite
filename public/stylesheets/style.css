@@ -471,12 +471,14 @@ a {
 
 .content {
 	/*background-color: #FFFFFF;*/
+	display: block;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	height: 500px;
+	height: 800px;
 }
 
 .page_header {
+	display: block;
 	height: 50px;
 	margin-bottom: 30px;
 }
@@ -489,6 +491,7 @@ a {
 }
 
 .section_header {
+	display: block;
 	text-align: left;
 	font-family: "opensans-semibold";
 	font-size: 20px;
@@ -499,9 +502,10 @@ a {
 }
 
 .portfolio_entry {
+	display: block;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	height: 400px;
+	height: 275px;
 }
 
 .portfolio_entry .image {
@@ -532,4 +536,10 @@ a {
 
 .portfolio_entry .text_container .text {
 
+}
+
+.portfolio_entry .text_container .text ul {
+	-webkit-margin-before: 5px;	
+	-webkit-margin-after: 5px;
+	font-size: 14px;
 }
