@@ -4,5 +4,33 @@
 	</div>
 </div>
 <div class="section_header grid_12">
+	Experience
+</div>
+{{#each experiences}}
+<div class="resume_entry">
+	<div class="resume_location">
+		<p>{{this.location}}</p>
+	</div>
+	<div class="resume_title_block">
+		<div class="resume_title">
+			<p>{{this.title}}</p>
+		</div>
+		<div class="resume_date">
+			<p>{{this.date}}</p>
+		</div>
+	</div>
+	<div class="resume_text">
+		<ul>
+			{{#each text}}
+			<li>
+				{{this}}
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+{{/each}}
+<div class="section_header grid_12">
 	Education
 </div>
+
