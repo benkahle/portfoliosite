@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="/stylesheets/foundation.css" />
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.runtime.min.js"></script>
+	<script type="text/javascript" src="/handlebars.templates"></script>
+</head>
+	<body>
+		<div class="global_header">
+			<div class="row">
+				<div class="logo small-2">
+					Ben Kahle
+				</div>
+				<div class="header_menu small-6">
+					<div class="nav_link">
+						<a class="nav-link" href="/contact">Contact</a>
+					</div>
+					<div class="nav_link">
+						<a class="nav-link" href="/projects">Projects</a>
+					</div>
+					<div class="nav_link">
+						<a class="nav-link" href="/resume">Resume</a>
+					</div>
+					<div class="nav_link">
+						<a class="nav-link" href="/">Profile</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content" class="content">
+		</div>
+	    <div class="global_footer">
+	    	<div class="row">
+	    		<div class="footer_note small-3">
+	    			© Ben Kahle - 2013
+	    		</div>
+	    	</div>
+	    </div>
+    </body>
+    <script type="text/javascript">
+      var path = document.location.pathname;
+      function initPage(path) {
+      	switch (true)
+      	{
+      		case path === "/" || path === "/profile":
+      			document.title = "Ben Kahle | Profile";
+      			$.ajax({
+      				type: "GET",
+      				url: "/data/profile.json"
+      			}).done(function(data) {
+      				var profileTemplate = Handlebars.templates['profile'];
+      				$("#content").html(profileTemplate(data));
+      			});
+      			break;
+
+      		case path === "/contact":
+      			document.title = "Ben Kahle | Contact";
+      			$.ajax({
+      				type: "GET",
+      				url: "/data/contact.json"
+      			}).done(function(data){
+      				var contactTemplate = Handlebars.templates['contact'];
+      				$("#content").html(contactTemplate(data));
+      			});
+      			break;
+
+      		case path === "/projects":
+      			document.title = "Ben Kahle | Projects";
+      			$.ajax({
+      				type: "GET",
+      				url: "/data/projects.json"
+      			}).done(function(data){
+      				var projectTemplate = Handlebars.templates['projects'];
+      				$("#content").html(projectTemplate(data));
+      			});
+      			break;
+
+      		case path === "/resume":
+      			document.title = "Ben Kahle | Resume";
+      			$.ajax({
+      				type: "GET",
+      				url: "/data/resume.json"
+      			}).done(function(data){
+      				var resumeTemplate = Handlebars.templates['resume'];
+      				$("#content").html(resumeTemplate(data));
+      				console.log(data);
+      			});
+      			break;
+
+      		default:
+      			document.location.pathname = "/";
+      			initPath("/");
+      			break;
+      	}
+      }
+      $("a.nav-link").click(function(e){
+      	e.preventDefault();
+      	path = $(this).attr("href");
+      	window.history.pushState("object or string", "Title", path);
+      	initPage(path);
+      });
+      initPage(path);
+    </script
+</html>

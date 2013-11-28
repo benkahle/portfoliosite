@@ -1,0 +1,38 @@
+<div class="page_header row">
+	<div class="title column small-4 push-4 ">
+		Resume
+	</div>
+</div>
+<div class="resume-body row">
+	<div class="section_header column small-12">
+		Experience
+	</div>
+	{{#each experiences}}
+	<div class="resume_entry small-12">
+		<div class="resume_location column small-4 left">
+			<p>{{this.location}}</p>
+		</div>
+		<div class="resume_title_block">
+			<div class="resume_title">
+				<p>{{this.title}}</p>
+			</div>
+			<div class="resume_date">
+				<p>{{this.date}}</p>
+			</div>
+		</div>
+		<div class="resume_text">
+			<ul>
+				{{#each text}}
+				<li>
+					{{this}}
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	{{/each}}
+	<div class="section_header small-4">
+		Education
+	</div>
+</div>
+

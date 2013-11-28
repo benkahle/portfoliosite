@@ -1,0 +1,62 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['contact'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"page_header grid_12\">\n	<div class=\"title grid_4 push_4 \">\n		Contact\n	</div>\n</div>";
+  });
+templates['profile'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"page_header grid_12\">\n	<div class=\"title grid_4 push_4 \">\n		Profile\n	</div>\n</div>";
+  });
+templates['projects'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"page_header grid_12\">\n	<div class=\"title grid_4 push_4 \">\n		Project Portfolio\n	</div>\n</div>\n<div class=\"section_header grid_12\">\n	Web Applications\n</div>\n<div class=\"portfolio_entry grid_12\">\n	<div class=\"image grid_5\">\n		<a href=\"http://mis.learnbig.com:3000\">\n			<img src=\"/images/LB_site_demo.png\"/>\n		</a>\n	</div>\n	<div class=\"text_container grid_6\">\n		<div class=\"title\">\n			LearnBIG Design Prototype\n		</div>\n		<div class=\"text\">\n			Technology:\n			<ul>\n				<li>Node.js</li>\n				<li>Javascript</li>\n				<li>HTML/CSS</li>\n				<li>MySQL</li>\n				<li>Amazon Web Services</li>\n			</ul>	\n			A design I made as a mockup for the LearnBIG website. I played with the handlebars.js template engine as well as experiments working with in-page content loading. \n		</div>\n	</div>\n</div>\n<div class=\"portfolio_entry grid_12\">\n	<div class=\"image grid_5\">\n		<a href=\"http://learnbig.com\">\n			<img src=\"images/lb_site.png\"/>\n		</a>\n	</div>\n	<div class=\"text_container grid_6\">\n		<div class=\"title\">\n			LearnBIG Site\n		</div>\n		<div class=\"text\">\n			Technology:\n			<ul>\n				<li>C#</li>\n				<li>.Net 4.5 MVC Framework</li>\n				<li>HTML/CSS</li>\n				<li>MySQL</li>\n				<li>Amazon Web Services</li>\n			</ul>	\n			I worked on both the front-end and back-end of the LearnBIG website which involved mostly bug fixes and new features on top of an already built foundation.\n		</div>\n	</div>\n</div>";
+  });
+templates['resume'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
+  buffer += "\n	<div class=\"resume_entry small-12\">\n		<div class=\"resume_location column small-4 left\">\n			<p>"
+    + escapeExpression(((stack1 = (depth0 && depth0.location)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</p>\n		</div>\n		<div class=\"resume_title_block\">\n			<div class=\"resume_title\">\n				<p>"
+    + escapeExpression(((stack1 = (depth0 && depth0.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</p>\n			</div>\n			<div class=\"resume_date\">\n				<p>"
+    + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</p>\n			</div>\n		</div>\n		<div class=\"resume_text\">\n			<ul>\n				";
+  stack2 = helpers.each.call(depth0, (depth0 && depth0.text), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n			</ul>\n		</div>\n	</div>\n	";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "";
+  buffer += "\n				<li>\n					"
+    + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
+    + "\n				</li>\n				";
+  return buffer;
+  }
+
+  buffer += "<div class=\"page_header row\">\n	<div class=\"title column small-4 push-4 \">\n		Resume\n	</div>\n</div>\n<div class=\"resume-body row\">\n	<div class=\"section_header column small-12\">\n		Experience\n	</div>\n	";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.experiences), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n	<div class=\"section_header small-4\">\n		Education\n	</div>\n</div>\n\n";
+  return buffer;
+  });
+})();
